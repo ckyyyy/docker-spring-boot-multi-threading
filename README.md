@@ -11,14 +11,14 @@ Reference: Mock user data in CSV format by [mockaroo](https://www.mockaroo.com/)
 ![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/save_users_thread.png)
 
 ###### API request and response to get all user records from 1 to 2000
-![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_users_request1.png)
-![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_users_request2.png)
+![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_user_request1.png)
+![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_user_request2.png)
 
 ###### Logging the use of thread to handle getting all users
-![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_users_thread.png)
+![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_user_thread.png)
 
 ###### API request to get all user records 3 times
-![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_users_by_thread_request.png)
+![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_user_by_thread_request.png)
 
 ###### Logging the use of thread to handle getting all users 3 times
-![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_users_by_thread.png)
+![image](https://github.com/ckyyyy/springboot-multithreading/blob/master/image/get_user_by_thread.png)
