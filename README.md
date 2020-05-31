@@ -1,6 +1,12 @@
 # Spring Boot Multi-threading Application
-Develop a simple spring boot multi-threading application with jasper report
+Develop a simple spring boot multi-threading application with jasper report in Docker Enivronment
  
+### Start Docker
+#### Create docker image by using build command
+```docker build -f Dockerfile -t springboot-multithreading .```
+#### Run docker image
+```docker run -p 9191:9191 springboot-multithreading```
+
 Reference:
 1. Mock user data in CSV format by [mockaroo](https://www.mockaroo.com/)
 2. Generate Report by using jrxml format in [Jasper Report](https://community.jaspersoft.com/project/jaspersoft-studio/releases)
