@@ -2,18 +2,15 @@ package com.cky.springbootmultithreading.controller;
 
 import com.cky.springbootmultithreading.entity.User;
 import com.cky.springbootmultithreading.service.UserService;
+import net.sf.jasperreports.engine.JRException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -47,5 +44,24 @@ public class UserController {
         CompletableFuture<List<User>> users3 = userService.findAllUsers();
         CompletableFuture.allOf(users1, users2, users3).join();
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/getUsersReportPdf")
+    public HttpEntity<byte[]> generateReport() throws FileNotFoundException, JRException {
+
+        try
+        {
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Content-Disposition", "attachment;filename=\"usersReport.pdf\"");
+            headers.add("Content-Type", "application/pdf");
+
+            byte[] report = userService.exportUsersReport();
+            return new HttpEntity<>(report, headers);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+//        return userService.exportUsersReport(format);
     }
 }
